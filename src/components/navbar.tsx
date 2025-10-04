@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { useAppKit } from '@reown/appkit/react'
+import { useAccount, useDisconnect } from 'wagmi'
 import { 
   NavigationMenu,
   NavigationMenuContent,
@@ -14,7 +14,8 @@ import {
 } from '@/components/ui/navigation-menu'
 
 export function Navbar() {
-  const { open, address, isConnected } = useAppKit()
+  const { address, isConnected } = useAccount()
+  const { disconnect } = useDisconnect()
 
   return (
     <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -63,14 +64,12 @@ export function Navbar() {
                 <span className="text-sm text-muted-foreground">
                   {address?.slice(0, 6)}...{address?.slice(-4)}
                 </span>
-                <Button variant="outline" size="sm" onClick={open}>
+                <Button variant="outline" size="sm" onClick={() => disconnect()}>
                   Disconnect
                 </Button>
               </div>
             ) : (
-              <Button onClick={open} className="bg-primary hover:bg-primary/90">
-                Connect Wallet
-              </Button>
+              <appkit-button />
             )}
           </div>
         </div>

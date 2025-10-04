@@ -3,11 +3,11 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { useAppKit } from '@reown/appkit/react'
+import { useAccount } from 'wagmi'
 import { ArrowRight, Globe, Trophy, Users } from 'lucide-react'
 
 export function Hero() {
-  const { open, isConnected } = useAppKit()
+  const { isConnected } = useAccount()
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/20 py-20">
@@ -42,10 +42,7 @@ export function Hero() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             ) : (
-              <Button size="lg" onClick={open} className="text-lg">
-                Connect Wallet to Start
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <appkit-button />
             )}
             <Button variant="outline" size="lg" className="text-lg">
               Learn More

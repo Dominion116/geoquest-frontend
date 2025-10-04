@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { 
   Twitter, 
   Github, 
-  Discord, 
+  MessageCircle, 
   Globe,
   Mail,
   ExternalLink
@@ -18,7 +18,7 @@ const footerLinks = {
     { name: 'API', href: '#' },
   ],
   Community: [
-    { name: 'Discord', href: '#', icon: Discord },
+    { name: 'Discord', href: '#', icon: MessageCircle },
     { name: 'Twitter', href: '#', icon: Twitter },
     { name: 'GitHub', href: '#', icon: Github },
     { name: 'Blog', href: '#', icon: ExternalLink },
@@ -62,7 +62,7 @@ export function Footer() {
                 <Github className="h-5 w-5" />
               </Button>
               <Button variant="ghost" size="icon">
-                <Discord className="h-5 w-5" />
+                <MessageCircle className="h-5 w-5" />
               </Button>
               <Button variant="ghost" size="icon">
                 <Globe className="h-5 w-5" />
@@ -81,7 +81,7 @@ export function Footer() {
                       href={link.href} 
                       className="text-muted-foreground hover:text-foreground transition-colors flex items-center space-x-2"
                     >
-                      {link.icon && <link.icon className="h-4 w-4" />}
+                      {'icon' in link && link.icon && <link.icon className="h-4 w-4" />}
                       <span>{link.name}</span>
                     </Link>
                   </li>
