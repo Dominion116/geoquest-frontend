@@ -27,8 +27,6 @@ yarn-error.log*
 
 # local env files
 .env*.local
-.env
-.env.local
 
 # vercel
 .vercel
@@ -111,3 +109,4 @@ public
 # Temporary folders
 tmp/
 temp/
+config.bat
