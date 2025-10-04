@@ -32,6 +32,7 @@ const wagmiAdapter = new WagmiAdapter({
 // 5. Create modal
 const appKit = createAppKit({
   adapters: [wagmiAdapter],
+  networks,
   projectId,
   metadata,
   features: {
